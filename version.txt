@@ -1,1 +1,1 @@
-1.1.0 NewEra
+1.1.1 NewEra
