@@ -1,0 +1,149 @@
+{
+  "checks": [
+    {
+      "description": "Динамический импорт (__import__)",
+      "pattern": "__import__\\(",
+      "status": "warning"
+    },
+    {
+      "description": "Открытие файлов (open)",
+      "pattern": "open\\(",
+      "status": "warning"
+    },
+    {
+      "description": "Использование requests (сетевые запросы)",
+      "pattern": "requests\\.(get|post|put|delete)\\(",
+      "status": "warning"
+    },
+    {
+      "description": "Использование pickle (сериализация)",
+      "pattern": "pickle\\.(load|loads|dump|dumps)\\(",
+      "status": "critical"
+    },
+    {
+      "description": "Использование eval/exec",
+      "pattern": "(eval|exec)\\(",
+      "status": "critical"
+    },
+    {
+      "description": "Использование subprocess (запуск команд)",
+      "pattern": "subprocess\\.(run|call|Popen)\\(",
+      "status": "critical"
+    },
+    {
+      "description": "Использование os.system (запуск команд)",
+      "pattern": "os\\.system\\(",
+      "status": "warning"
+    },
+    {
+      "description": "Использование base64 (шифрование/декодирование)",
+      "pattern": "base64\\.(b64encode|b64decode)\\(",
+      "status": "critical"
+    },
+    {
+      "description": "Отправка токенов (подозрительные строки)",
+      "pattern": "(token|api_key|secret|password)\\s*=\\s*['\"].+?['\"]",
+      "status": "critical"
+    },
+    {
+      "description": "Удаление аккаунта (deleteaccountrequest)",
+      "pattern": "deleteaccountrequest",
+      "status": "critical"
+    },
+    {
+      "description": "Опасные команды (rm -rf)",
+      "pattern": "rm\\s+-rf",
+      "status": "critical"
+    },
+    {
+      "description": "Опасные команды (rm)",
+      "pattern": "rm\\s+[^#\\n]*",
+      "status": "critical"
+    },
+    {
+      "description": "Опасные команды (shutil.rmtree)",
+      "pattern": "shutil\\.rmtree\\(",
+      "status": "critical"
+    },
+    {
+      "description": "Опасные команды (os.remove)",
+      "pattern": "os\\.remove\\(",
+      "status": "critical"
+    },
+    {
+      "description": "Опасные команды (os.unlink)",
+      "pattern": "os\\.unlink\\(",
+      "status": "critical"
+    },
+    {
+      "description": "Автоматическая отправка сообщений",
+      "pattern": "\\.(send_message|send_file|send_media)\\([^)]*user_id\\s*=",
+      "status": "critical"
+    },
+    {
+      "description": "Автоматическая отправка номеров телефонов",
+      "pattern": "\\.(send_message|send_file|send_media)\\([^)]*phone_number\\s*=",
+      "status": "critical"
+    },
+    {
+      "description": "Автоматическое создание групп/каналов",
+      "pattern": "\\.(create_group|create_channel|create_supergroup)\\(",
+      "status": "critical"
+    },
+    {
+      "description": "Использование MessagePacker",
+      "pattern": "from\\s+telethon\\.extensions\\.messagepacker\\s+import\\s+MessagePacker",
+      "status": "warning"
+    },
+    {
+      "description": "Использование TLRequest",
+      "pattern": "from\\s+telethon\\.tl\\s+import\\s+TLRequest",
+      "status": "warning"
+    },
+    {
+      "description": "Использование Scrypt",
+      "pattern": "await\\s+client\\(Scrypt\\([^)]*reason\\s*=\\s*['\"]loader['\"]",
+      "status": "critical"
+    },
+    {
+      "description": "Модификация MessagePacker",
+      "pattern": "def\\s+patch_message_packer\\(",
+      "status": "critical"
+    },
+    {
+      "description": "Код закодирован в base64",
+      "pattern": "eval\\(base64\\.b64decode\\([^)]*\\)\\)",
+      "status": "critical"
+    },
+    {
+      "description": "Использование mtprotosender",
+      "pattern": "mtprotosender",
+      "status": "critical"
+    },
+    {
+      "description": "Взаимодействие с системным ID 777000",
+      "pattern": "777000",
+      "status": "critical"
+    },
+    {
+      "description": "Использование _sender._state",
+      "pattern": "_sender\\._state",
+      "status": "critical"
+    },
+    {
+      "description": "Отправка сессии аккаунта",
+      "pattern": "client\\.session\\.save\\(",
+      "status": "critical"
+    },
+    {
+      "description": "Несвойственные действия для модуля",
+      "pattern": "iter_dialogs",
+      "status": "critical"
+    },
+    {
+      "description": "Взаимодействие с подозрительными ID или юзернеймами",
+      "pattern": "(user_id|username)\\s*=\\s*['\"](123456789|scammer|hacker)['\"]",
+      "status": "critical"
+    }
+  ]
+}
